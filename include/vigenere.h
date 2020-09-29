@@ -8,4 +8,6 @@ int cypher(char c, char key[], int* keyindex, int c_or_d);
 
 int* frequence(char* s);
 
+void print_table(int* occ_table);
+
 int find_key_length(char* cyphered_text);
