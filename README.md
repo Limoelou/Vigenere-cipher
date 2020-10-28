@@ -1,4 +1,4 @@
-# Vigenere encryption and cryptanalysis methods
+<center> # Vigenere encryption and cryptanalysis methods </center>
 
 # RESUME
 The Vigenere encryption is an encryption algorithm which is similar the casear’s code in the
