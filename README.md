@@ -11,8 +11,8 @@ far more difficult but not impossible.
 The src/vigenere.c file which contains the source code for the vigenere encryption.
 compiling it with ’make’ gives the executable ’vigenere’.
 To use it : ./vigenere c/d infile outfile key
-c : encrypt the infile
-d : decrypt the infile
+* c : encrypt the infile
+* d : decrypt the infile
 infile : the input file to be encrypted or decrypted given the right key
 outfile : the output file key: the key for the encryption / decryption
 
