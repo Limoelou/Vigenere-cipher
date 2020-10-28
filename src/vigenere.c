@@ -6,7 +6,23 @@
 #include <string.h>
 #include <unistd.h>
 
-
+int cypher(char c, char key[], int* keyindex, int c_or_d)
+{
+    int cyphered_char = 0;
+    if(c_or_d == 0) {
+	cyphered_char = (c + key[*keyindex]) % 256;
+    }
+    else {
+	cyphered_char = (c - key[*keyindex]) % 256;
+    }
+    if(*keyindex == strlen(key)) {
+	*keyindex = 0;
+    }
+    else {
+	*keyindex += 1;
+    }
+    return cyphered_char;
+}
 
 int vigenere_encrypt(char *infile, char *outfile, char key[], int c_or_d)
 {
@@ -15,7 +31,7 @@ int vigenere_encrypt(char *infile, char *outfile, char key[], int c_or_d)
     int cypher_value = 0;
     FILE* fdin = fopen(infile, "r");
     FILE* fdout = fopen(outfile, "w");
-    if(fdin == NULL){ exit(EXIT_FAILURE);}
+    if(fdin == NULL || fdout == NULL){ exit(EXIT_FAILURE);}
     char_value = fgetc(fdin);
     while( char_value != EOF )
     {
@@ -23,31 +39,10 @@ int vigenere_encrypt(char *infile, char *outfile, char key[], int c_or_d)
 	fputc(cypher_value, fdout);
 	char_value = fgetc(fdin);
     }
+
     fclose(fdin);
     fclose(fdout);
     return 0;
-}
-
-int cypher(char c, char key[], int* keyindex, int c_or_d)
-{
-    int cyphered_char = 0;
-    if(c_or_d == 0)
-    {
-	cyphered_char = (c + key[*keyindex]) % 256;
-    }
-    else
-    {
-	cyphered_char = (c - key[*keyindex]) % 256;
-    }
-    if(*keyindex == strlen(key))
-    {
-    	*keyindex = 0;
-    }
-    else
-    {
-	 *keyindex += 1;
-    }
-    return cyphered_char;
 }
 
 int main(int argc, char* argv[])
@@ -62,6 +57,7 @@ int main(int argc, char* argv[])
     }
     else
     {
-	printf("Wrong argument given to vigenere script.");
+	printf("Wrong usage of vigenere.");
     }
+
 }
