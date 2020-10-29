@@ -13,8 +13,8 @@ compiling it with ’make’ gives the executable ’vigenere’.
 To use it : ./vigenere c/d infile outfile key
 * c : encrypt the infile
 * d : decrypt the infile
-infile : the input file to be encrypted or decrypted given the right key
-outfile : the output file key: the key for the encryption / decryption
+* infile : the input file to be encrypted or decrypted given the right key
+* outfile : the output file key: the key for the encryption / decryption
 
 
 ### 3 CRYPTANALYSIS WITH KASISKI TEST
